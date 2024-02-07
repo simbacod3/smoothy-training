@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="card-wrapper">
-      <div class="card-header">Image</div>
+      <div class="card-header"><img :src="image" /></div>
       <div class="card-body">
         <h2 class="card-title">{{ title }}</h2>
         <p>{{ description }}</p>
       </div>
       <div class="card-footer">
-        <div><button>Details</button></div>
-        <div><button>Buy now</button></div>
+        <div><button @click="emit('goToDetails')">Details</button></div>
+        <div><button @click="emit('buyItem')">Buy now</button></div>
       </div>
     </div>
   </div>
@@ -25,6 +25,8 @@ withDefaults(defineProps<Props>(), {
   title: 'Here is the title',
   description: 'Here is the description'
 })
+
+const emit = defineEmits(['goToDetails', 'buyItem'])
 </script>
 
 <style lang="css" scoped>
