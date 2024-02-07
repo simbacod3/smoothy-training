@@ -1,0 +1,1 @@
+export { samples, type Card } from './samples'
